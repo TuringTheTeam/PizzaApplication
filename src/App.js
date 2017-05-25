@@ -1,8 +1,23 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import $ from 'jquery';
 
 class App extends Component {
+    
+  constructor(props){
+      super(props);
+      
+      this.state = {
+          data: "Os dados apareceram aqui"
+      }
+  }  
+   
+  getData(){
+      return new Promise(() => $.get('http://node19.codenvy.io:46776/data')
+        .then(data => this.setState({ data })))
+  } 
+    
   render() {
     return (
       <div className="App">
@@ -13,6 +28,9 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
+        <button onClick={this.getData.bind(this)}>GetData</button>
+        <br/>
+        <p>{this.state.data}</p>
       </div>
     );
   }
