@@ -3,6 +3,8 @@ import logo from './logo.svg';
 import './App.css';
 import $ from 'jquery';
 
+import CadastroProdutos from './CadastroProdutos';
+
 class App extends Component {
     
   constructor(props){
@@ -31,6 +33,7 @@ class App extends Component {
         <button onClick={this.getData.bind(this)}>GetData</button>
         <br/>
         <p>{this.state.data}</p>
+          <CadastroProdutos></CadastroProdutos>
       </div>
     );
   }
